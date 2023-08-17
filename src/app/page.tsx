@@ -4,13 +4,13 @@ import { Metadata } from 'next'
  
 export const metadata: Metadata = {
   title: 'Playground App',
-  description: 'description...',
+  description: 'This is a Next playground app',
 }
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Test
+    <main className="flex flex-col">
+      Homepage
     </main>
   )
 }
