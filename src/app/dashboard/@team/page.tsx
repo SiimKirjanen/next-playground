@@ -1,7 +1,5 @@
 async function getPeople() {
-  console.log('Fetching people');
-  const resp = await fetch('https://jsonplaceholder.typicode.com/users', {
-  });
+  const resp = await fetch('https://jsonplaceholder.typicode.com/users', {});
 
   if (!resp.ok) {
     // This will activate the closest `error.js` Error Boundary

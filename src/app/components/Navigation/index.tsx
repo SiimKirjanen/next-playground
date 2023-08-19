@@ -5,7 +5,7 @@ const Navigation = () => {
     <nav className="flex justify-end gap-x-4">
         <Link href="/">Home</Link>
         <Link href="/dashboard">Dashboard</Link>
-        <Link href="/about">About</Link>
+        <Link href="/users">Users</Link>
     </nav>
   )
 }
