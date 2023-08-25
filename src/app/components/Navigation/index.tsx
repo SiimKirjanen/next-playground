@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Navigation = () => {
   return (
@@ -7,7 +7,7 @@ const Navigation = () => {
         <Link href="/dashboard">Dashboard</Link>
         <Link href="/users">Users</Link>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

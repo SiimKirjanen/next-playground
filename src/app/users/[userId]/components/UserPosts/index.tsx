@@ -1,4 +1,4 @@
-import { IPost } from "@/app/interfaces/post"
+import { IPost } from "@/app/interfaces/post";
 
 interface Props {
     promise: Promise<IPost[]>
@@ -14,10 +14,10 @@ const UserPosts = async ({ promise }: Props) => {
                 return (<article key={post.id}>
                     <h4>{post.title}</h4>
                     <p>{post.body}</p>
-                </article>)
+                </article>);
             })}
         </div>
-    )
-}
+    );
+};
 
-export default UserPosts
+export default UserPosts;

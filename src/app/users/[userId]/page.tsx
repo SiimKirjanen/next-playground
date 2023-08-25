@@ -7,7 +7,7 @@ async function getUser(userId: string): Promise<IUser> {
     const resp = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
 
     if (!resp.ok) {
-      throw new Error('Failed to fetch data')
+      throw new Error('Failed to fetch data');
     }
 
     return await resp.json();
@@ -17,7 +17,7 @@ async function getUserPosts(userId: string): Promise<IPost[]> {
     const resp = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`);
 
     if (!resp.ok) {
-      throw new Error('Failed to fetch data')
+      throw new Error('Failed to fetch data');
     }
 
     return await resp.json();
@@ -40,7 +40,7 @@ const User = async ({ params: {userId} }: Params) => {
             <UserPosts promise={userPostsPromise}/>
         </Suspense>
     </div>
-  )
-}
+  );
+};
 
-export default User
+export default User;

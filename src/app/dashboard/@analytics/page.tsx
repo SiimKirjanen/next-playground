@@ -13,10 +13,10 @@ const Analytics = async () => {
     <div className="border-2 p-4">
       <h2>Analytics</h2>
       {data && data.map((item, i) => {
-        return <div key={i}>{item}</div>
+        return <div key={i}>{item}</div>;
       })}
     </div>
-  )
-}
+  );
+};
 
-export default Analytics
+export default Analytics;
