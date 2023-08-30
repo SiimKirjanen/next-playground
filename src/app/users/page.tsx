@@ -8,12 +8,10 @@ async function getUsers(): Promise<IUser[]> {
   );
 
   if (!resp.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-  const users = await resp.json();
 
-  return users;
+  return await resp.json();
 }
 
 const Users = async () => {
