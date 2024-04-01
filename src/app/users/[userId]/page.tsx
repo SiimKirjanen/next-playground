@@ -1,7 +1,6 @@
-import { IPost } from "@/app/interfaces/post";
-import { IUser } from "@/app/interfaces/user";
+import { IUser } from "@/_interfaces/user";
 import { Suspense } from "react";
-import UserPosts from "./components/UserPosts";
+import UserPosts from "./_components/UserPosts";
 
 async function getUser(userId: string): Promise<IUser> {
   const resp = await fetch(

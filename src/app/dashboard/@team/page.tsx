@@ -1,4 +1,5 @@
 import { IUser } from "@/app/interfaces/user";
+import Link from "next/link";
 
 async function getPeople(): Promise<IUser[]> {
   const resp = await fetch("https://jsonplaceholder.typicode.com/users", {});
@@ -18,11 +19,12 @@ const Team = async () => {
   return (
     <div>
       Team page
-      <ul>
+      <ul className="mb-4">
         {people.map((person) => {
           return <li key={person.id}>{person.name}</li>;
         })}
       </ul>
+      <Link href="/dashboard/members">Members</Link>
     </div>
   );
 };

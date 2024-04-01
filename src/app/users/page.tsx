@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IUser } from "../interfaces/user";
+import { IUser } from "@/_interfaces/user";
 
 async function getUsers(): Promise<IUser[]> {
   const resp = await fetch(

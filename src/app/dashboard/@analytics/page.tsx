@@ -1,8 +1,10 @@
+import ErrorThrower from "@/app/components/ErrorThrower";
+
 async function getData(): Promise<string[]> {
   return new Promise((res) => {
     setTimeout(() => {
       res(["Siim", "Kalle", "Malle"]);
-    }, 3000);
+    }, 4000);
   });
 }
 

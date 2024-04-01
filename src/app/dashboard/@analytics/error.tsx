@@ -19,6 +19,7 @@ export default function Error({
       <h2>Something went wrong with the Analytics</h2>
       {error.message}
       <button
+        className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()

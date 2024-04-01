@@ -4,10 +4,13 @@ export default function Layout(props: {
   team: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-row gap-x-6">
-      {props.children}
-      {props.team}
-      {props.analytics}
-    </div>
+    <>
+      <h2 className="mb-4">Dashboard page</h2>
+      <div className="flex flex-row gap-x-6">
+        {props.children}
+        {props.team}
+        {props.analytics}
+      </div>
+    </>
   );
 }
