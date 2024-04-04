@@ -1,7 +1,7 @@
 import React from "react";
 
 function defaultPage() {
-  return <div>default.tnx kicking in in @analytics slot</div>;
+  return <div>@analytics slot default.tsx </div>;
 }
 
 export default defaultPage;

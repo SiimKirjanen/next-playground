@@ -1,4 +1,4 @@
-import { IUser } from "@/app/interfaces/user";
+import { IUser } from "@/_interfaces/user";
 import Link from "next/link";
 
 async function getPeople(): Promise<IUser[]> {
@@ -24,7 +24,12 @@ const Team = async () => {
           return <li key={person.id}>{person.name}</li>;
         })}
       </ul>
-      <Link href="/dashboard/members">Members</Link>
+      <Link
+        href="/dashboard/members"
+        className="rounded bg-blue-500 px-3 py-2 font-bold text-white hover:bg-blue-700"
+      >
+        Members
+      </Link>
     </div>
   );
 };

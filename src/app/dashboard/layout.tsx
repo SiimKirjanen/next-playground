@@ -5,7 +5,7 @@ export default function Layout(props: {
 }) {
   return (
     <>
-      <h2 className="mb-4">Dashboard page</h2>
+      <h2 className="mb-4">Parallel routes example</h2>
       <div className="flex flex-row gap-x-6">
         {props.children}
         {props.team}
