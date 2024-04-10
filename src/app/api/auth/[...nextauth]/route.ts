@@ -1,8 +1,10 @@
 import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
+import GitHubProvider, { GithubProfile } from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { compare } from "bcrypt";
+import prisma from "@/_libs/prisma";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -17,10 +19,10 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: {
-          label: "Username: ",
-          type: "text",
-          placeholder: "Your username",
+        email: {
+          label: "Email: ",
+          type: "email",
+          placeholder: "Your email",
         },
         password: {
           label: "Password: ",
@@ -29,26 +31,44 @@ export const authOptions: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
-        // This is where you need to retrieve user data
-        // to verify with credentials
-        // Docs: https://next-auth.js.org/configuration/providers/credentials
-        const user = { id: "42", name: "Dave", password: "nextauth" };
-
-        if (
-          credentials?.username === user.name &&
-          credentials?.password === user.password
-        ) {
-          return user;
-        } else {
+        if (!credentials?.email || !credentials?.password) {
           return null;
         }
+
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+        });
+
+        if (!user) {
+          return null;
+        }
+
+        const isPasswordValid = await compare(
+          credentials.password,
+          user.password,
+        );
+
+        if (!isPasswordValid) {
+          return null;
+        }
+
+        return {
+          id: user.id + "",
+          email: user.email,
+          name: user.name,
+        };
       },
     }),
   ],
   callbacks: {
-    session({ session, token }) {
+    async jwt({ token, user, profile, account }) {
+      return token;
+    },
+    session({ session, token, user }) {
       if (session.user && token.sub) {
-        session.user.provider_user_id = token.sub;
+        session.user.id = token.sub;
       }
 
       return session;

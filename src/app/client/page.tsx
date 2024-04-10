@@ -15,6 +15,7 @@ function Page() {
 
   return (
     <section className="flex flex-col gap-6">
+      {JSON.stringify(session)}
       <UserCard user={session?.user} pagetype={"Client"} />
       <button onClick={() => signOut()}>Sign out</button>
     </section>
